@@ -1,6 +1,6 @@
 # sn
 
-share white board saving everything to mysql database.
+Shared Sticky note all contents saving to mysql database real time.
 
 setup:
 
