@@ -12,7 +12,7 @@ setup:
 
 4 modifiy mysql preoperty
 
-5 node server.js
+5 run node server.js  in terminal
 
 6 done
 
