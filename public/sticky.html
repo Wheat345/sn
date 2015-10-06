@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Sticky notes</title>
+    <script src="/javascripts/socket.io.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+    <script src="/sticky.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/app.css">
+
+</head>
+<body ng-controller="MainCtrl">
+    <div class="navbar navbar-inverse" ng-init = "loadNote()">
+        <button id="createButton" ng-click="createNote()" class="btn btn-default">New Note</button>
+    </div>
+    <div sticky-note ng-repeat="note in notes" note="note" class="alert alert-block sticky-note" ondelete="deleteNote(note.noteCreateTime)">
+        <button type="button" class="close" ng-click="deleteNote(note.noteCreateTime)">&times;</button>
+        <span ng-bind = "note.lastModificationTime">{{note.lastModificationTime}}</span>
+        <textarea ng-model="note.noteContent" ng-change="updateNote(note)" class="body">{{note.noteContent}}</textarea>
+    </div>
+</body>
+</html>
