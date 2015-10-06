@@ -12,7 +12,7 @@
 
 </head>
 <body ng-controller="MainCtrl">
-    <div class="navbar navbar-inverse" ng-init = "loadNote()">
+    <div class = "navbar navbar-inverse" ng-init = "loadNote()">
         <button id="createButton" ng-click="createNote()" class="btn btn-default">New Note</button>
     </div>
     <div sticky-note ng-repeat="note in notes" note="note" class="alert alert-block sticky-note" ondelete="deleteNote(note.noteCreateTime)">
