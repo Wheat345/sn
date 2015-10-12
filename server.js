@@ -26,7 +26,14 @@ var dbconnection = mysql.createConnection({
 
 });
 
-dbconnection.connect();
+dbconnection.connect(function(err) {
+
+  if (err) {
+    console.error("error: " + err.stack);
+    return;
+  }
+  console.log("connected id: " + dbconnection.threadId);
+});
 
 
 app.get('/notelist', function (req, res) {
